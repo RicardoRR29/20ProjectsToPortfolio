@@ -1,6 +1,7 @@
 
 const videoElement = document.getElementById('video')
-const button = document.getElementById('button')
+const button = document.getElementById('btn-start')
+const btnScreen = document.getElementById('btn-screen')
 
 
 // Prompt to select media stream, pass to video element, then display
@@ -10,6 +11,7 @@ async function selectMediaStream() {
         videoElement.srcObject = mediaStream
         videoElement.onloadedmetadata = () => {
             videoElement.play()
+            button.disabled = false
         }
     
     } catch (error) {
@@ -27,5 +29,6 @@ button.addEventListener('click', async () => {
     button.disabled = false
 })
 
-// On Load
-selectMediaStream()
+btnScreen.addEventListener('click', () => {
+    selectMediaStream()
+})

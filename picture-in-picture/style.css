@@ -18,12 +18,12 @@ body {
     padding: 10px;
     border-radius: 7px;
     box-shadow: inset 0 20px 4px -19px rgba(255, 255, 255, 0.7);
+    margin: 25px;
 }
 
 button {
     cursor: pointer;
     outline: none;
-    width: 120px;
     height: 75px;
     font-family: Barlow, sans-serif;
     font-size: 25px;
@@ -33,6 +33,8 @@ button {
     border: 2px solid black;
     box-shadow: inset 0 20px 4px -19px rgba(255, 255, 255, 0.4), 0 10px 10px 0 rgba(0, 0, 0, 0.3);
     border-radius: 7px;
+    transition: background-color 0.2s;
+    padding: 5px 30px;
 }
 
 button:hover {
@@ -42,4 +44,25 @@ button:hover {
 button:active {
     transform: translateY(3px);
     box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
+
+#btn-start {
+    background: linear-gradient(to top, #28ec43, #0afa66);
+}
+
+#btn-start:hover {
+    background: linear-gradient(to top, #0afa66, #28ec43);
+}
+
+button:disabled, #btn-start:disabled, #btn-start:hover:disabled {
+    filter: opacity(0.4);
+    background: linear-gradient(to top, #696969, #575757);
+    pointer-events: none;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        flex-direction: column;
+    }
 }
