@@ -6,13 +6,13 @@ const newQuoteBtn = document.getElementById('new-quote')
 const loader = document.getElementById('loader')
 
 // Show Loading
-function loading() {
+function showLoadingSpinner() {
     loader.hidden = false
     quoteContainer.hidden = true
 }
 
 // Hide Loading
-function complete() {
+function removeLoadingSpinner() {
     loader.hidden = true
     quoteContainer.hidden = false
 }
@@ -21,7 +21,7 @@ let apiQuotes = []
 
 // Show New Quote
 function newQuote() {
-    loading()
+    showLoadingSpinner()
     // Pick a random quote from apiQuotes array
     const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)]
     // Check if Author field is black and replace it with "Unknown"
@@ -30,7 +30,7 @@ function newQuote() {
     quote.text.length > 80 ? quotetext.classList.add('long-quote') : quotetext.classList.remove('long-quote')
 
     quotetext.textContent = quote.text
-    complete()
+    removeLoadingSpinner()
 }
 
 // Get Quotes From API
@@ -41,7 +41,7 @@ async function getQuotes() {
         apiQuotes = await response.json()
         newQuote()
     } catch (error) {
-        alert(error)
+        getQuotes()
         // Catch Error Here
     }
 }
@@ -59,5 +59,5 @@ twitterBtn.addEventListener('click', tweetQuote)
 
 
 // On Load
-loading()
+showLoadingSpinner()
 getQuotes()
