@@ -4,9 +4,22 @@ html {
     box-sizing: border-box; /* use in every project */
 }
 
+
 body {
-    margin: 0;
     height: 100vh;
+    flex-direction: column;
+}
+
+.title {
+    color: white;
+    font-family: Barlow, sans-serif;
+    font-size: 2rem;
+    padding: 0.5rem;
+}
+
+
+body, .block {
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,10 +28,10 @@ body {
 
 .button-container {
     border: 2px solid black;
-    padding: 10px;
-    border-radius: 7px;
-    box-shadow: inset 0 20px 4px -19px rgba(255, 255, 255, 0.7);
-    margin: 25px;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    box-shadow: inset 0 1.3rem 0.3rem -1.5rem rgba(255, 255, 255, 0.7);
+    margin: 2rem 4rem;
 }
 
 button {
@@ -31,10 +44,10 @@ button {
     text-shadow: 0 2px 5px black;
     background: linear-gradient(to top, #696969, #575757);
     border: 2px solid black;
-    box-shadow: inset 0 20px 4px -19px rgba(255, 255, 255, 0.4), 0 10px 10px 0 rgba(0, 0, 0, 0.3);
-    border-radius: 7px;
+    box-shadow: inset 0 1.3rem 0.3rem -1.5rem rgba(255, 255, 255, 0.4), 0 0.8rem 0.8rem 0 rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
     transition: background-color 0.2s;
-    padding: 5px 30px;
+    padding: 0.3rem 2rem;
 }
 
 button:hover {
@@ -43,7 +56,7 @@ button:hover {
 
 button:active {
     transform: translateY(3px);
-    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.3);
 }
 
 
@@ -61,8 +74,49 @@ button:disabled, #btn-start:disabled, #btn-start:hover:disabled {
     pointer-events: none;
 }
 
+
+@media (max-width: 1080px) {
+    html {
+        font-size: 93.75%;
+    }
+}
+
+@media (max-width: 720px) {
+    html {
+        font-size: 87.5%;
+    }
+}
+
+
+@media (max-width: 600px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+
+@media (max-width: 500px) {
+    html {
+        font-size: 68.75%;
+    }
+}
+
+
+@media (max-width: 400px) {
+    html {
+        font-size: 62.5%;
+    }
+}
+
 @media screen and (max-width: 600px) {
-    body {
+    .block {
         flex-direction: column;
+    }
+    .button-container, button {
+        width: 100%;
+    }
+    .button-container {
+        margin: 25px 50px;
+
     }
 }
